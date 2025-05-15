@@ -1,0 +1,28 @@
+- name: Create config directory
+  file:
+    path: "{{ vault_config_dir }}"
+    state: directory
+    owner: "{{ vault_user }}"
+    group: "{{ vault_group }}"
+
+- name: Create data directory
+  file:
+    path: "{{ vault_data_dir }}"
+    state: directory
+    owner: "{{ vault_user }}"
+    group: "{{ vault_group }}"
+
+- name: Copy Vault config file
+  copy:
+    src: vault.hcl
+    dest: "{{ vault_config_dir }}/vault.hcl"
+    owner: "{{ vault_user }}"
+    group: "{{ vault_group }}"
+    mode: '0644'
+  notify: Restart Vault
+
+- name: Setup systemd unit
+  template:
+    src: vault.service.j2
+    dest: /etc/systemd/system/vault.service
+  notify: Restart Vault

@@ -1,0 +1,6 @@
+---
+- name: Setup Vault 
+  hosts: web
+  become: yes
+  roles:
+    -  /home/radha/hashicorp_prod

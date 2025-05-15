@@ -1,0 +1,13 @@
+[Unit]
+Description=HashiCorp Vault
+After=network.target
+
+[Service]
+User={{ vault_user }}
+Group={{ vault_group }}
+ExecStart={{ vault_bin_path }} server -config={{ vault_config_dir }}/vault.hcl
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

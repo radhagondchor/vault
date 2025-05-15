@@ -1,0 +1,9 @@
+---
+# defaults file for hashicorp_prod
+vault_version: "1.15.2"
+vault_user: vault
+vault_group: vault
+vault_bin_path: /usr/local/bin/vault
+vault_config_dir: /etc/vault.d
+vault_data_dir: /opt/vault/data
+vault_address: "http://0.0.0.0:8200"

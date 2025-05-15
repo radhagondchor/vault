@@ -1,0 +1,13 @@
+- name: Reload systemd
+  systemd:
+    daemon_reload: yes
+
+- name: Enable Vault service
+  systemd:
+    name: vault
+    enabled: yes
+
+- name: Start Vault service
+  systemd:
+    name: vault
+    state: started

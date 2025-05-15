@@ -1,0 +1,1 @@
+web ansible_host=54.159.76.54 ansible_user=ubuntu ansible_ssh_private_key_file=/home/radha/Downloads/tomcat.pem
